@@ -1,5 +1,13 @@
 terraform {
   required_version = ">= 0.12.0"
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "WPPITPOC"
+
+    workspaces {
+      name = "Azure_VMSS"
+    }
+  }
 }
 
 provider "azurerm" {
