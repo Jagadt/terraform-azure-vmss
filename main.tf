@@ -2,6 +2,12 @@ terraform {
   required_version = ">= 0.12.0"
 }
 
+provider "azurerm" {
+  # whilst the `version` attribute is optional, we recommend pinning to a given version of the Provider
+  version = "=2.40.0"
+  features {}
+}
+
 resource "azurerm_resource_group" "resource_group" {
   name     = "${var.application}-${var.environment}"
   location = "${var.location}"
